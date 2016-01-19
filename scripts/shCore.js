@@ -353,7 +353,11 @@ var sh = {
 		attachEvent(
 			window,
 			'load',
-			function() { sh.highlight(params); }
+			function() {
+				sh.highlight(params);
+				var event = new Event('highlight_complete');
+				document.dispatchEvent(event);
+			}
 		);
 	}
 }; // end of sh
